@@ -1,5 +1,5 @@
 Package.describe({
-    summary: "Form bot proteciton for Meteor."
+    summary: "Form bot protection for Meteor."
 });
 
 Package.on_use(function(api) {
