@@ -9,7 +9,6 @@ Package.on_use(function(api) {
     ], 'client');
     api.use([
         'http',
-        'handlebars',
     ], 'server');
 
     api.add_files(['server/server.js'], 'server');

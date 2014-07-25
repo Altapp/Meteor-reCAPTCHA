@@ -31,7 +31,7 @@ reCAPTCHA = {
             console.log(e);
             return {
                 'success': false,
-                'error': 'google_service_not_accessible'
+                'error': 'Service Not Available'
             };
         }
 
@@ -41,7 +41,7 @@ reCAPTCHA = {
         if (success !== 'true') {
             return {
                 'success': false,
-                'error': 'captcha_verification_failed'
+                'error': 'Entered Text Does Not Match'
             };
         }
 
@@ -50,26 +50,3 @@ reCAPTCHA = {
         };
     }
 }
-
-
-// Meteor.methods({
-//     "submitMySecuredForm": function(data) {
-
-//         //!add code here to separate captcha data from form data.
-
-//         var verifyCaptchaResponse = reCAPTCHA.verifyCaptcha(this.connection.clientAddress, data);
-
-//         if (!verifyCaptchaResponse.success) {
-//             console.log('Captcha check failed! Responding with: ', verifyCaptchaResponse);
-//             return verifyCaptchaResponse;
-//         }
-
-//         console.log('Captcha verification passed!');
-
-//         //!add code here to process form data
-
-//         return {
-//             success: true
-//         };
-//     }
-// });
