@@ -7,6 +7,10 @@ Package.on_use(function(api) {
         'templating',
         'handlebars',
     ], 'client');
+    api.use([
+        'http',
+        'handlebars',
+    ], 'server');
 
     api.add_files(['server/server.js'], 'server');
     api.add_files(['client/client.html', 'client/client.js'], 'client');
