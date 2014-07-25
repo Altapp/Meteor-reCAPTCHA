@@ -1,0 +1,9 @@
+{
+    "name": "recaptcha",
+    "description": "Form bot proteciton for Meteor.",
+    "homepage": "https://github.com/manybothans/Meteor-reCAPTCHA",
+    "author": "ManyBothans <jess@altapp.ca>",
+    "version": "1.0.0",
+    "git": "https://github.com/manybothans/Meteor-reCAPTCHA.git",
+    "packages": {}
+}
