@@ -28,6 +28,7 @@ reCAPTCHA = {
                 }
             });
         } catch (e) {
+            console.log(e);
             return {
                 'success': false,
                 'error': 'google_service_not_accessible'
