@@ -3,6 +3,7 @@ Package.describe({
 });
 
 Package.on_use(function(api) {
-    // api.add_files('aes.js', ['client', 'server']);
-    // api.export && api.export('CryptoJS');
+    api.add_files('server/server.js', ['server']);
+    api.add_files('client/client.html', ['client']);
+    api.add_files('client/client.js', ['client']);
 });
