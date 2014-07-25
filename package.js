@@ -9,6 +9,6 @@ Package.on_use(function(api) {
     ], 'client');
 
     api.add_files(['server/server.js'], 'server');
-    api.add_files(['client/client.js', 'client/client.html'], 'client');
+    api.add_files(['client/client.html', 'client/client.js'], 'client');
     api.export && api.export('reCAPTCHA', ['client', 'server']);
 });
