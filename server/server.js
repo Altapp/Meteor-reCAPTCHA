@@ -6,7 +6,7 @@ reCAPTCHA = {
     verifyCaptcha: function(clientIP, data) {
         var captcha_data = {
             privatekey: this.settings.privatekey,
-            remoteip: clientIP
+            remoteip: clientIP,
             challenge: data.captcha_challenge_id,
             response: data.captcha_solution
         };
