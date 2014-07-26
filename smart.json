@@ -3,7 +3,7 @@
     "description": "Form bot protection for Meteor.",
     "homepage": "https://github.com/manybothans/Meteor-reCAPTCHA",
     "author": "ManyBothans <jess@altapp.ca>",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "git": "https://github.com/manybothans/Meteor-reCAPTCHA.git",
     "packages": {}
 }
