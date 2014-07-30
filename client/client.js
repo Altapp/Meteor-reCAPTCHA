@@ -13,7 +13,9 @@ Template.reCAPTCHA.rendered = function() {
     $.getScript('http://www.google.com/recaptcha/api/js/recaptcha_ajax.js', function() {
         Recaptcha.create(reCAPTCHA.settings.publickey, 'rendered-captcha-container', {
             theme: reCAPTCHA.settings.theme,
-            callback: Recaptcha.focus_response_field
+            callback: function() {
+                return;
+            }
         });
     });
 
