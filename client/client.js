@@ -10,7 +10,7 @@ reCAPTCHA = {
 
 Template.reCAPTCHA.rendered = function() {
 
-    $.getScript('http://www.google.com/recaptcha/api/js/recaptcha_ajax.js', function() {
+    $.getScript('//www.google.com/recaptcha/api/js/recaptcha_ajax.js', function() {
         Recaptcha.create(reCAPTCHA.settings.publickey, 'rendered-captcha-container', {
             theme: reCAPTCHA.settings.theme,
             callback: function() {
