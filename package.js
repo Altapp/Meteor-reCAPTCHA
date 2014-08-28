@@ -1,8 +1,11 @@
 Package.describe({
-    summary: "Form bot protection for Meteor."
+    summary: "Form bot protection for Meteor.",
+    git: "https://github.com/manybothans/Meteor-reCAPTCHA.git",
+    version: "1.1.0",
+    name: "jplatimer:recaptcha",
 });
 
-Package.on_use(function(api) {
+Package.onUse(function(api) {
     api.use([
         'templating',
         'handlebars',
@@ -11,7 +14,7 @@ Package.on_use(function(api) {
         'http',
     ], 'server');
 
-    api.add_files(['server/server.js'], 'server');
-    api.add_files(['client/client.html', 'client/client.js'], 'client');
+    api.addFiles(['server/server.js'], 'server');
+    api.addFiles(['client/client.html', 'client/client.js'], 'client');
     api.export && api.export('reCAPTCHA', ['client', 'server']);
 });
