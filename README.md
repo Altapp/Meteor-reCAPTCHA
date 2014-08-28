@@ -8,7 +8,7 @@ Package made with the help of this [StackOverflow question](http://stackoverflow
 ## Installation
 
 ``` sh
-$ mrt add recaptcha
+$ meteor add jplatimer:recaptcha
 ```
 
 ## Setup

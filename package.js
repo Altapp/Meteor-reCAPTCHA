@@ -1,7 +1,7 @@
 Package.describe({
     summary: "Form bot protection for Meteor.",
     git: "https://github.com/manybothans/Meteor-reCAPTCHA.git",
-    version: "1.1.0",
+    version: "1.1.1",
     name: "jplatimer:recaptcha",
 });
 
