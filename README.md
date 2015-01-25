@@ -1,17 +1,21 @@
-# Meteor reCAPTCHA
-Google's reCAPTCHA is a free CAPTCHA service that protects your site against spam, malicious registrations and other forms of attacks where computers try to disguise themselves as a human. In addition to protecting your site, reCAPTCHA also helps digitize old books and newspapers.
+# Meteor reCAPTCHA v2
+This is an implementation of the Google reCAPTCHA v2 API (i.e. "I'm not a robot") for Meteor sites. reCAPTCHA is a free CAPTCHA service provided by Google that authenticates real users while attempting to block bots.
 
 reCAPTCHA is at https://developers.google.com/recaptcha/
 
-Package made with the help of this [StackOverflow question](http://stackoverflow.com/questions/22253196/working-example-of-recaptcha-in-meteor).
+Package is an upgraded version of Meteor-reCAPTCHA provided by Altapp (https://github.com/Altapp/Meteor-reCAPTCHA).
 
 ## Installation
 
 ``` sh
-$ meteor add altapp:recaptcha
+$ meteor add yuea:recaptcha
 ```
 
 ## Setup
+
+### Obtain reCAPTCHA Keys From Google
+
+Register at https://www.google.com/recaptcha/admin to obtain your private and public key needed for reCAPTCHA to function.
 
 ###On The Client
 

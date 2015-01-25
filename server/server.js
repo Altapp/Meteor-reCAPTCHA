@@ -3,24 +3,22 @@ reCAPTCHA = {
     config: function(settings) {
         return _.extend(this.settings, settings);
     },
-    verifyCaptcha: function(clientIP, data) {
+    verifyCaptcha: function(recaptchaResponse, clientIP) {
         var captcha_data = {
-            privatekey: this.settings.privatekey,
+            secret: this.settings.privatekey, // for prod: process.env.RECAPTCHA_PRIVATE_KEY,
             remoteip: clientIP,
-            challenge: data.captcha_challenge_id,
-            response: data.captcha_solution
+            response: recaptchaResponse
         };
 
         var serialized_captcha_data =
-            'privatekey=' + captcha_data.privatekey +
+            'secret=' + captcha_data.secret +
             '&remoteip=' + captcha_data.remoteip +
-            '&challenge=' + captcha_data.challenge +
             '&response=' + captcha_data.response;
         var captchaVerificationResult = null;
         var success, parts; // used to process response string
 
         try {
-            captchaVerificationResult = HTTP.call("POST", "http://www.google.com/recaptcha/api/verify", {
+            captchaVerificationResult = HTTP.call("POST", "https://www.google.com/recaptcha/api/siteverify", {
                 content: serialized_captcha_data.toString('utf8'),
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
@@ -36,12 +34,12 @@ reCAPTCHA = {
         }
 
         parts = captchaVerificationResult.content.split('\n');
-        success = parts[0];
+        success = parts[1];
 
-        if (success !== 'true') {
+        if (success.indexOf('true') < 0) {
             return {
                 'success': false,
-                'error': 'Entered Text Does Not Match'
+                'error': 'reCAPTCHA verification failed'
             };
         }
 
