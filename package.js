@@ -1,6 +1,6 @@
 Package.describe({
-    name: "yuea:recaptcha",
-    summary: "Google recAPTCHA v2 package for Meteor",
+    name: "ayue:recaptcha",
+    summary: "Google reCAPTCHA v2 package for Meteor",
     git: "https://github.com/yuea/Meteor-reCAPTCHA.git",
     version: "2.0.0"
 });

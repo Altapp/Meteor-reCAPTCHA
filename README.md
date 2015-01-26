@@ -8,7 +8,7 @@ Package is an upgraded version of Meteor-reCAPTCHA provided by Altapp (https://g
 ## Installation
 
 ``` sh
-$ meteor add yuea:recaptcha
+$ meteor add ayue:recaptcha
 ```
 
 ## Setup
@@ -71,12 +71,9 @@ Template.myTemplate.events({
         };
 
         //get the captcha data
-        var captchaData = {
-            captcha_challenge_id: Recaptcha.get_challenge(),
-            captcha_solution: Recaptcha.get_response()
-        };
+        var recaptchaResponse = grecaptcha.getResponse();
 
-        Meteor.call('formSubmissionMethod', formData, captchaData, function(error, result) {
+        Meteor.call('formSubmissionMethod', formData, recaptchaResponse, function(error, result) {
             if (error) {
                 console.log('There was an error: ' + error.reason);
             } else {
@@ -89,13 +86,13 @@ Template.myTemplate.events({
 
 ###On The Server
 
-In the server method, pass the captcha data and the user's IP address to `reCAPTCHA.verifyCaptcha(clientIP, captchaData)` to verify that the user entered the correct text.
+In the server method, pass the captcha data and the user's IP address to `reCAPTCHA.verifyCaptcha(recaptchaResponse, clientIP)` to verify that the user entered the correct text.
 
 ``` javascript
 Meteor.methods({
-    formSubmissionMethod: function(formData, captchaData) {
+    formSubmissionMethod: function(formData, recaptchaResponse) {
 
-        var verifyCaptchaResponse = reCAPTCHA.verifyCaptcha(this.connection.clientAddress, captchaData);
+        var verifyCaptchaResponse = reCAPTCHA.verifyCaptcha(recaptchaResponse, this.connection.clientAddress);
 
         if (!verifyCaptchaResponse.success) {
             console.log('reCAPTCHA check failed!', verifyCaptchaResponse);
