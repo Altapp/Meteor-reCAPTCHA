@@ -1,3 +1,16 @@
 <template name="reCAPTCHA">
-<div id="rendered-captcha-container">loading...</div>
+<div id="rendered-captcha-container">loading reCAPTCHA...</div>
+<script>
+	var onloadCallback = function() { 
+		$( "#rendered-captcha-container" ).empty();
+
+		grecaptcha.render('rendered-captcha-container', {
+	        	sitekey: reCAPTCHA.settings.publickey,
+	            theme: reCAPTCHA.settings.theme,
+	            callback: function () {
+	            return;
+	        }
+	    });
+	};
+</script>
 </template>
