@@ -1,22 +1,16 @@
 reCAPTCHA = {
-    settings: {
-        theme: 'clean'
-    },
+    settings: {},
     config: function(settings) {
         return _.extend(this.settings, settings);
     }
 }
 
+Template.reCAPTCHA.helpers({
+    sitekey: function() {
+        return reCAPTCHA.settings.publickey;
+    }
+});
 
-Template.reCAPTCHA.rendered = function() {
-
-    $.getScript('//www.google.com/recaptcha/api/js/recaptcha_ajax.js', function() {
-        Recaptcha.create(reCAPTCHA.settings.publickey, 'rendered-captcha-container', {
-            theme: reCAPTCHA.settings.theme,
-            callback: function() {
-                return;
-            }
-        });
-    });
-
+Template.reCAPTCHA.created = function () {
+    $.getScript('https://www.google.com/recaptcha/api.js');
 }

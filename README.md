@@ -67,12 +67,12 @@ Template.myTemplate.events({
         };
 
         //get the captcha data
-        var captchaData = {
-            captcha_challenge_id: Recaptcha.get_challenge(),
-            captcha_solution: Recaptcha.get_response()
-        };
+        var captchaData = grecaptcha.getResponse();
 
         Meteor.call('formSubmissionMethod', formData, captchaData, function(error, result) {
+            // reset the captcha
+            grecaptcha.reset();
+            
             if (error) {
                 console.log('There was an error: ' + error.reason);
             } else {
