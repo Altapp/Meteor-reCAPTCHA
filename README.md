@@ -13,7 +13,7 @@ $ meteor add altapp:recaptcha
 
 ## Setup
 
-###On The Client
+### On The Client
 
 Add your reCAPTCHA public key (from Google) to the package. Do this in client-side code.
 
@@ -25,7 +25,7 @@ Meteor.startup(function() {
 });
 ```
 
-###On The Server
+### On The Server
 
 Add your reCAPTCHA private key (from Google) to the package. Do this in server-only code (not just an 'isServer' block) to keep your key secret.
 
@@ -39,7 +39,7 @@ Meteor.startup(function() {
 
 ## Usage
 
-###On The Client
+### On The Client
 
 Include the `{{> reCAPTCHA}}` template block in your form template.
 
@@ -72,7 +72,7 @@ Template.myTemplate.events({
         Meteor.call('formSubmissionMethod', formData, captchaData, function(error, result) {
             // reset the captcha
             grecaptcha.reset();
-            
+
             if (error) {
                 console.log('There was an error: ' + error.reason);
             } else {
@@ -83,7 +83,7 @@ Template.myTemplate.events({
 });
 ```
 
-###On The Server
+### On The Server
 
 In the server method, pass the captcha data and the user's IP address to `reCAPTCHA.verifyCaptcha(clientIP, captchaData)` to verify that the user entered the correct text.
 
