@@ -43,4 +43,4 @@ reCAPTCHA = {
         captchaVerificationResult = EJSON.parse(captchaVerificationResult.content);
         return captchaVerificationResult;
     }
-}
+};
