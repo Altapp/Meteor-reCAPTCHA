@@ -16,11 +16,13 @@ $ meteor add altapp:recaptcha
 ### On The Client
 
 Add your reCAPTCHA public key (from Google) to the package. Do this in client-side code.
+Optionally you can add language code. Please refer to [documentation](https://developers.google.com/recaptcha/docs/language) 
 
 ``` javascript
 Meteor.startup(function() {
     reCAPTCHA.config({
-        publickey: 'your_public_key_from_google'
+        publickey: 'your_public_key_from_google',
+        hl: 'en'
     });
 });
 ```
