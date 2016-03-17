@@ -12,5 +12,9 @@ Template.reCAPTCHA.helpers({
 });
 
 Template.reCAPTCHA.created = function () {
-    $.getScript('https://www.google.com/recaptcha/api.js');
+    if ('hl' in reCAPTCHA.settings) {
+        $.getScript('https://www.google.com/recaptcha/api.js?hl=' + reCAPTCHA.settings.hl);
+    } else {
+        $.getScript('https://www.google.com/recaptcha/api.js');
+    }
 }
