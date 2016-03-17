@@ -20,7 +20,8 @@ Add your reCAPTCHA public key (from Google) to the package. Do this in client-si
 ``` javascript
 Meteor.startup(function() {
     reCAPTCHA.config({
-        publickey: 'your_public_key_from_google'
+        publickey: 'your_public_key_from_google',
+        hl: 'ja' // optional display language
     });
 });
 ```
