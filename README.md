@@ -106,3 +106,26 @@ Meteor.methods({
     }
 });
 ```
+### Using a Callback
+
+You can take advantage of the `data-callback` attribute to fire a function when the reCaptcha has been completed successfully and the checkbox has been checked. This is advantageous if you don't want to rely on a submit/click event in order to trigger processing of the reCaptcha.
+
+```
+// client.html
+<template name="myPage">
+  {{> reCAPTCHA callback="myCallback"}}
+</template>
+
+// client.js
+Template.myPage.onCreated(function() {
+    myCallback = function () {
+        let captchaData = grecaptcha.getResponse();
+        Meteor.call('captchaCheck', captchaData, function (err, res) {
+            if (err) {
+                // Do something when the reCaptcha has failed.
+            } else {
+                // Do something when the reCaptcha has been completed successfully.
+            }
+        });
+    };
+});

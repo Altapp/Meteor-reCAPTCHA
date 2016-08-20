@@ -12,6 +12,7 @@ Package.onUse(function(api) {
     api.use([
         'templating',
         'handlebars',
+        'ejson',
     ], 'client');
     api.use([
         'http',

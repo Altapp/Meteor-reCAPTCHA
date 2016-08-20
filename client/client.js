@@ -11,10 +11,10 @@ Template.reCAPTCHA.helpers({
     }
 });
 
-Template.reCAPTCHA.created = function () {
+Template.reCAPTCHA.onCreated(function () {
     if ('hl' in reCAPTCHA.settings) {
         $.getScript('https://www.google.com/recaptcha/api.js?hl=' + reCAPTCHA.settings.hl);
     } else {
         $.getScript('https://www.google.com/recaptcha/api.js');
     }
-}
+});
