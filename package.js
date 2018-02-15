@@ -12,9 +12,11 @@ Package.onUse(function(api) {
     api.use([
         'templating',
         'handlebars',
+        'ejson'
     ], 'client');
     api.use([
         'http',
+        'ejson'
     ], 'server');
 
     api.addFiles(['server/server.js'], 'server');
